@@ -69,12 +69,10 @@ class Purple:
             if(c in ['A','E','I','O','U','Y']):
                 c = self.changeToVowelIndex(c)
                 encrypted.append(plugboard[c])
-            elif(c in ['B' , ' C' , ' D' , ' F' , ' G' , ' H' , ' J' , ' K' , ' L' , ' M' , ' N' , ' P' , ' Q' , ' R' , ' S' , ' T' , ' V' , ' X' , ' Z' , ' W']):
+            elif(c in ['B' , 'C' , 'D' , 'F' , 'G' , 'H' , 'J' , 'K' , 'L' , 'M' , 'N' , 'P' , 'Q' , 'R' , 'S' , 'T' , 'V' , 'X' , 'Z' , 'W']):
                 c = (self.changeToConsIndex(c))
                 c = int(c) + int(6)
                 encrypted.append(plugboard[c])
-            else:
-                encrypted.append(c)
         final = ''.join(chr(i) for i in encrypted)
         return final
 
@@ -511,7 +509,7 @@ class Purple:
             #CHECK IF A CHAR IS VOWEL OR NOT
             vowels = 'AEIOUY'
             #print("Vowels: " ,self.vowels," Gear one : ", self.consonanti, " Gear Two : ", self.consonantii, " Gear Three :", self.consonantiii)
-
+#if(c in ['A','E','I','O','U','Y']):
             if all(c in vowels for char in vowels):
                # print('going in Vowel switches: ' , c)
                 c = self.changeToVowelIndex(c)

@@ -4,7 +4,7 @@ from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
 import purple 
-purpleEnc = purple.Purple(8,0,2,23,1,5,0,'AEIOUYBCDFGHJKLMNPQRSTVWXZ','ASFHBJNAWFKMWAFMWAKF')
+purpleEnc = purple.Purple(8,0,2,3,1,5,0,'AEIOUYBCDFGHJKLMNPQRSTVWXZ','ASFHBJNAWFKMWAFMWAKF')
 
 def receive():
     """Handles receiving of messages."""
@@ -13,7 +13,7 @@ def receive():
             msg = client_socket.recv(BUFSIZ).decode("utf8")
             # De-code it right there
             purpleEnc.changeText(msg)
-            msg = purpleEnc.decrypt()
+            # msg = purpleEnc.decrypt()
             msg_list.insert(tkinter.END, msg)
         except OSError:  # Possibly client has left the chat.
             break
